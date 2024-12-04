@@ -1,0 +1,69 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.WpfApp_Lab1_OOP_RaceSimulator.iml
+/projectSettingsUpdater.xml
+/contentModel.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Build Folders
+bin/
+obj/
+
+# Visual Studio user files
+*.user
+*.suo
+*.csproj.user
+
+# Visual Studio Settings folder
+.vs/
+
+# NuGet
+packages/
+*.nupkg
+project.lock folders and files.json
+project.fragment.lock.json
+project.assets.json
+
+# Logs and temporary files
+*.log
+
+# OS configuration files
+*.DS_Store
+*.vscode/
+Thumbs.db
+
+# Folders and files Rider
+.idea/
+*.idea/
+*.iml
+.idea_modules/
+
+# The Rider cache folder
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+
+# Code cache Rider
+.idea/.idea_modules/
+
+# Data folder Rider
+.idea/.rider/
+.idea/shelf/
+
+# Files and folders to play in Docker/CI (if used)
+docker-compose.override.yml
+docker-compose.*.override.yml
+.env
+
+# Debugging files and temporary
+*.pdb
+
+# Configuration and temporary Windows
+*.db files
