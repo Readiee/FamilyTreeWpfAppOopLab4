@@ -1,0 +1,29 @@
+<Window x:Class="FamilyTree.Presentation.SelectPersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:FamilyTree.Presentation"
+        mc:Ignorable="d"
+        Title="Выбор человека" Height="300" Width="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="Выберите человека:" FontWeight="Bold" Margin="0,0,0,10"/>
+        <ListBox Grid.Row="1" x:Name="PeopleListBox" DisplayMemberPath="FullName" />
+        
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Height="30" Margin="0, 0, 5, 0" Content="Отмена" Click="CancelButton_Click" />
+            <Button Grid.Column="1" Height="30" Margin="5, 0, 0, 0" Content="Выбрать" Click="SelectButton_Click" />
+        </Grid>
+    </Grid>
+</Window>

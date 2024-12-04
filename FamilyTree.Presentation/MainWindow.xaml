@@ -1,0 +1,82 @@
+﻿<Window x:Class="FamilyTree.Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FamilyTree.Presentation"
+        mc:Ignorable="d"
+        Title="Family Tree" MinHeight="600" MinWidth="650" Width="750">
+    
+    <d:Window.DataContext>
+        <local:MainWindow />
+    </d:Window.DataContext>
+    
+    <Grid Margin="10">
+        <!-- Левый блок для списка людей -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Text="Выберите человека:" FontWeight="Bold" Margin="0,0,0,10"/>
+            <ListBox Grid.Row="1" x:Name="PeopleListBox" MinHeight="250" />
+            <StackPanel Grid.Row="2">
+                <Button Height="30" Content="Добавить человека" Margin="0,10,0,0" Click="AddPersonButton_Click" />
+                <Button Height="30" Content="Создать случайную семью" 
+                        Margin="0,10,0,0" 
+                        Click="GenerateRandomFamily_Click" 
+                        IsEnabled="{Binding IsPeopleListEmpty}" />
+                <Button Height="30" Content="Загрузить дерево" Margin="0,10,0,0" Click="LoadTree_Click" />
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0, 20, 0 ,0" VerticalAlignment="Bottom">
+                <TextBlock Text="Генеалогическое дерево" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"/>
+                <TextBlock Text="ЛР4 - Галсанов Булат М4105" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="11" Margin="0,0,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Правый блок для действий и информации -->
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Кнопки сверху -->
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Действия" FontWeight="Bold" Margin="0,0,0,10"/>
+                <Button Height="30" Content="Установить отношения (родитель/ребенок)" Click="SetParentChildButton_Click" Margin="0,0, 0, 5"/>
+                <Button Height="30" Content="Установить отношения (супруги)" Click="SetSpouseButton_Click" Margin="0,5"/>
+                <Button Height="30" Content="Показать родственников" Click="ShowRelativesButton_Click" Margin="0,5"/>
+                <Button Height="30" Content="Вычислить возраст при рождении потомка" Click="GetAncestorAgeAtBirthButton_Click" Margin="0,5"/>
+                <Button Height="30" Content="Найти общих предков" Click="GetCommonAncestorsButton_Click" Margin="0,5"/>
+            </StackPanel>
+            
+            <!-- Вывод -->
+            <Grid Grid.Row="1" Margin="0,5,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Margin="0,5" Text="Вывод:" FontWeight="Bold"/>
+                <TextBox Grid.Row="1" x:Name="OutputTextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" />
+            </Grid>
+            
+            <!-- Кнопки снизу -->
+            <StackPanel Grid.Row="2">
+                <Button Height="30" Content="Вывести дерево" Click="ShowTreeButton_Click" Margin="0,15, 0, 0"/>
+                <Button Height="30" Content="Очистить дерево" Margin="0,10,0,0" Click="ClearTree_Click" />
+                <Button Height="30" Content="Сохранить дерево" Margin="0,10,0,0" Click="SaveTree_Click" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
